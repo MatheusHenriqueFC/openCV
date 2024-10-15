@@ -5,7 +5,7 @@ carregaFace = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_defaul
 imagem = cv2.imread('fotos/imagem1.jpg')
 imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
-faces = carregaFace.detectMultiScale(imagemCinza, scaleFactor=1.05, minNeighbors=1, minSize=(30,30))
+faces = carregaFace.detectMultiScale(imagemCinza)
 #scaleFactor, minNeighbors, minSize
 
 print(faces)
