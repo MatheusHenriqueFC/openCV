@@ -1,15 +1,17 @@
 import cv2
 
-classificador = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
-webcam = cv2.VideoCapture(0)
+carregaFace = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
 
-while True:
-    camera, frame = webcam.read()
+imagem = cv2.imread('fotos/imagem1.jpg')
+imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
-    cv2.imshow("imagem webcamera", frame)
+faces = carregaFace.detectMultiScale(imagemCinza)
+#scaleFactor, minNeighbors, minSize
 
-    if cv2.waitKey(1) == ord('f'):
-        break
+print(faces)
 
-webcam.release()
-cv2.destroyAllWindows()
+for(x, y, l, a) in faces:
+    cv2.rectangle(imagem, (x, y), (x + l, y + a), (0, 255, 0), 2)
+
+cv2.imshow("Faces", imagem)
+cv2.waitKey()

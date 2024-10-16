@@ -3,7 +3,7 @@ import cv2
 carregaFace = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
 carregaOlho = cv2.CascadeClassifier('haarcascades/haarcascade_eye.xml')
 
-imagem = cv2.imread('fotos/imagem6.jpg')
+imagem = cv2.imread('imagens/imagem6.jpg')
 imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 faces = carregaFace.detectMultiScale(imagemCinza)
 
